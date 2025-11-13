@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 이야기 생성기</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+        .reset-btn {
+            background-color: #d9534f;
+            margin-top: 10px;
+        }
+        .reset-btn:hover {
+            background-color: #c9302c;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI 이야기 생성기</h1>
+        {% if story %}
+        <h2>생성된 이야기:</h2>
+        <p>{{ story }}</p>
+        {% endif %}
+        <form method="post">
+            <label for="user_input">어떻게 하겠습니까? :</label><br>
+            <input type="text" id="user_input" name="user_input" required style="width: 100%; padding: 10px;">
+            <button type="submit" style="margin-top: 10px; padding: 10px;">이야기 생성</button>
+        </form>
+        <form method="post">
+            <button type="submit" name="reset" value="true" class="reset-btn">이야기 초기화</button>
+        </form>
+    </div>
+</body>
+</html>
